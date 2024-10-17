@@ -1,0 +1,12 @@
+<h1>Welcome to the Blog Site</h1>
+{{#if posts.length}}
+    <ul>
+        {{#each posts}}
+            <li>
+                <a href="/post/{{this.id}}">{{this.title}}</a> - {{this.createdAt}}
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>No posts available.</p>
+{{/if}}

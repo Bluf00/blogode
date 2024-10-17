@@ -1,0 +1,14 @@
+<h1>Your Dashboard</h1>
+<h2>Your Posts</h2>
+{{#if userPosts.length}}
+    <ul>
+        {{#each userPosts}}
+            <li>
+                <a href="/post/{{this.id}}">{{this.title}}</a>
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>You haven't created any posts yet.</p>
+{{/if}}
+<a href="/post/new">Create New Post</a>

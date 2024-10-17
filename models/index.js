@@ -20,7 +20,16 @@ const db = {
   models: {}
 };
 
-// Import models here (e.g., User)
+// Import models
 db.models.User = require('./user')(sequelize, DataTypes);
+db.models.Post = require('./post')(sequelize, DataTypes);
+db.models.Comment = require('./comment')(sequelize, DataTypes);
+
+// Set up associations
+Object.keys(db.models).forEach(modelName => {
+    if (db.models[modelName].associate) {
+        db.models[modelName].associate(db.models);
+    }
+});
 
 module.exports = db;
